@@ -1,14 +1,13 @@
 {
-  "name": "project3",
-  "version": "1.0.0",
+  "name": "bigyo",
+  "version": "0.0.0",
   "description": "An app to compare cities for web developers",
   "main": "index.js",
   "dependencies": {
-    "body-parser": "^1.14.1",
+    "body-parser": "^1.14.2",
     "express": "^4.13.3",
-    "hbs": "^4.0.0",
-    "init": "^0.1.2",
-    "mongoose": "^4.2.9"
+    "jade": "^1.11.0",
+    "mongoose": "^4.3.4"
   },
   "devDependencies": {},
   "scripts": {
@@ -16,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Briik/Project3.git"
+    "url": "git+https://github.com/mooniker/bigyo"
   },
   "author": "Bryce Lively, Daniel Alexander, James Moon",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Briik/Project3/issues"
+    "url": "https://github.com/mooniker/bigyo/issues"
   },
-  "homepage": "https://github.com/Briik/Project3#readme"
+  "homepage": "https://github.com/mooniker/bigyo#readme"
 }
