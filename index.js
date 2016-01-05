@@ -1,8 +1,10 @@
 var express = require('express');
-var env;
-try {
+
+var env; // configuration variables
+try { // check if local env.js exists for dev server
   env = require('./env');
 } catch (localEnvJsNotPresentException) {
+  // otherwise use production server's config vars
   env = process.env;
 }
 
