@@ -1,0 +1,35 @@
+extends ./layout.jade
+
+block content
+  h2 Welcome #{currentUser.local.email}
+  .card-content
+    h3.card-title your info
+    dl
+      dt email
+      dd= currentUser.local.email
+      dt password
+      dd= currentUser.local.password
+      dt id
+      dd= currentUser._id
+  .current-ads
+    h3 your current ads
+    each ad in ads
+      .ad.card-content
+        h2.card-title= ad.name
+        p= ad.text
+        ul
+          li created at
+            = ad.created_at
+        .card-action
+          form(action='/advertising/ads/' + ad._id + '?_method=delete', method='post')
+            input(type='submit', value='delete')
+  .new-ad
+    h3 new ad
+    form(action='/advertising/ads', method='post')
+      label(for='ad_name') ad name
+      input(type='text', name='ad_name')
+      label(for='ad_text') ad text
+      input(type='text', name='ad_text')
+      input.waves-effect.waves-light.btn(type='submit')
+      
+  

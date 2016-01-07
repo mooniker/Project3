@@ -1,0 +1,12 @@
+extends ./layout.jade
+
+block content
+  h2 #{currentUser.local.email}'s Account
+  dl
+    dt email
+    dd= currentUser.local.email
+    dt password
+    dd= currentUser.local.password
+    dt id
+    dd= currentUser._id
+  

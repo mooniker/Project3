@@ -1,0 +1,28 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title advertising on bigyo
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  body
+    h1
+      a(href='/advertising') bigyo advertising
+    ul
+      if currentUser
+        li you are part of the in-crowd
+        li
+          a(href='/advertising/account') account
+        li
+          a(href='/advertising/logout') logout #{currentUser.local.email}
+      else
+        li you are not with it!
+        li
+          a(href='/advertising/signup') signup
+        li
+          a(href='/advertising/login') login
+    if message && message.length > 0
+      p.alert.alert-danger Flash: #{message}
+    main
+      block content
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js')
