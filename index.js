@@ -43,17 +43,17 @@ server.use( function(request, response, next) {
   next();
 } );
 
-var SponsorModel = require('./models/sponsor');
+var SponsorModel = require('./models/sponsor'); // is this even needed?
 var sponsors = require('./controllers/sponsors');
 var ads = require('./controllers/ads');
 
 var dbConnection = mongoose.connect(env.MONGO_SERVER_URI);
 
-server.get( '/', function(request, response) {
+server.get('/', function(request, response) {
   response.json({
     'message': 'Hello, world!'
   });
-} );
+});
 
 var helpers = {
   authenticatedSponsor: function(request, response, next) {
@@ -90,6 +90,13 @@ server.route('/advertising')
 
 server.route('/advertising/account')
   .get(helpers.authenticatedSponsor, sponsors.getAccount);
+
+server.route('/ping')
+  .get(function(request, response) {
+    response.json({
+      body: 'PONG'
+    });
+  });
 
 server.listen( env.PORT, function () {
   console.log('Server listens on port', env.PORT + '.');
