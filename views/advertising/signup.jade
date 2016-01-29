@@ -2,11 +2,13 @@ extends ./layout.jade
 
 block content
   h2 signup
-  form(method='post', action='/advertising/signup')
-    .form-group
-      label(for='email') email
-      input(type='text', name='email', id='email')
-    .form-group
-      label(for='password') password
-      input(type='password', name='password', id='password')
-    input(type='submit')
+  .row
+    form.col.s12(method='post', action='/advertising/signup')
+      .row
+        .form-group.input-field.col.s6
+          label(for='email') email
+          input(type='text', name='email', id='email')
+        .form-group.input-field.col.s6
+          label(for='password') password
+          input(type='password', name='password', id='password')
+        input(type='submit', value='sign up')

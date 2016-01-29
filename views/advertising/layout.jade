@@ -3,26 +3,42 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     title advertising on bigyo
-    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    link(rel='stylesheet', media='screen,projection', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css')
+    link(rel='stylesheet', media='screen,projection', type='text/css', href='/style.css')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
   body
-    h1
-      a(href='/advertising') bigyo advertising
-    ul
-      if currentUser
-        li you are part of the in-crowd
-        li
-          a(href='/advertising/account') account
-        li
-          a(href='/advertising/logout') logout #{currentUser.local.email}
-      else
-        li you are not with it!
-        li
-          a(href='/advertising/signup') signup
-        li
-          a(href='/advertising/login') login
+    nav.white(role='navigation')
+      .nav-wrapper.container
+        a#logo-container.brand-logo(href='/advertising') bigyo
+        ul.right.hide-on-med-and-down
+          if currentUser
+            li
+              a(href='/advertising/account') account
+            li
+              a(href='/advertising/logout') logout #{currentUser.local.email}
+          else
+            li
+              a(href='/advertising/signup') signup
+            li
+              a(href='/advertising/login') login
+        ul#nav-mobile.side-nav
+          if currentUser
+            li
+              a(href='/advertising/account') account
+            li
+              a(href='/advertising/logout') logout #{currentUser.local.email}
+          else
+            li
+              a(href='/advertising/signup') signup
+            li
+              a(href='/advertising/login') login
+        a.button-collapse(href='#', data-activates='nav-mobile')
+          i.material-icons menu
     if message && message.length > 0
       p.alert.alert-danger Flash: #{message}
     main
       block content
+    footer.page-footer.teal
+    script(src='https://code.jquery.com/jquery-2.2.0.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js')
