@@ -7,13 +7,15 @@ var Schema = mongoose.Schema,
 // define schema for messages
 var AdSchema = new Schema({
 
-  name : String,
+  name: String,
 
-  text : String,
+  text: String,
+
+  href: String,
 
   client_id : {
-    type : Schema.Types.ObjectId,
-    ref : 'Sponsor'
+    type: Schema.Types.ObjectId,
+    ref: 'Sponsor'
   },
 
   // city_id : {
@@ -22,8 +24,8 @@ var AdSchema = new Schema({
   // },
 
   created_at : {
-    type : Date,
-    default : Date.now
+    type: Date,
+    default: Date.now
   }
 
 });
