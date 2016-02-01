@@ -33,10 +33,12 @@ module.exports = {
   create: function(request, response) {
     var adName = request.body.ad_name;
     var adText = request.body.ad_text;
+    var adHref = request.body.ad_href;
     var clientId = currentUser._id;
     helpers.saveNewAd({
       name: adName,
       text: adText,
+      href: adHref,
       client_id: clientId,
     });
     response.redirect('/advertising');
